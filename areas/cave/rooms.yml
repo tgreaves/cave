@@ -1,13 +1,13 @@
 ---
-- id: start
-  coordinates: [0, 0, 0]
-  title: Start
-  description: Empty starting room
-- id: eastwing
-  coordinates: [1, 0, 0]
-  title: East Room
-  description: Empty starting room
-- id: westwing
-  coordinates: [-1, 0, 0]
-  title: West Room
-  description: Empty starting room
+- id: 1
+  title: Main Entrance
+  description: This is the Main Entrance. The only way is down to the south.
+  exits:
+    - roomId: cave:2
+      direction: south
+- id: 2
+  title: Tunnel
+  description: There is a way up to the north which leads out into sunlight and a west/east tunnel.
+  exits:
+    - roomId: cave:1
+      direction: north
