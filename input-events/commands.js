@@ -2,7 +2,7 @@
 
 const { Broadcast: B, CommandType, Logger, PlayerRoles } = require('ranvier');
 const { NoPartyError, NoRecipientError, NoMessageError } = require('ranvier').Channel;
-const { CommandParser, InvalidCommandError, RestrictedCommandError } = require('../../../lib/CommandParser');
+const { CommandParser, InvalidCommandError, RestrictedCommandError } = require('../lib/CommandParser');
 
 module.exports = {
   event: state => player => {
