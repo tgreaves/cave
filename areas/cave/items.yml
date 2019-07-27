@@ -1,0 +1,8 @@
+- id: "stick"
+  name: "Stick"
+  type: WEAPON
+  roomDesc: "Stick"
+  keywords: [ "stick" ]
+  
+
+

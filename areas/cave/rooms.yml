@@ -10,6 +10,7 @@
   title: Undefined
   description: There is a way up to the north which leads out into sunlight and a
     west/east tunnel.
+  items: [ "cave:stick" ]
   exits:
   - roomId: cave:1
     direction: up
