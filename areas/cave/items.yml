@@ -1,8 +1,50 @@
+- id: "vodka"
+  name: "Vodka"
+  type: POTION
+  roomDesc: "Vodka"
+  keywords: [ "vodka" ]
 - id: "stick"
   name: "Stick"
   type: WEAPON
   roomDesc: "Stick"
   keywords: [ "stick" ]
-  
-
-
+- id: "poison"
+  name: "Poison"
+  type: POTION
+  roomDesc: "Poison"
+  keywords: [ "poison " ]
+- id: "dagger"
+  name: "Dagger"
+  type: WEAPON
+  roomDesc: "Dagger"
+  keywords: [ "dagger " ]
+- id: "bow"
+  name: "Bow"
+  type: WEAPON
+  roomDesc: "Bow"
+  keywords: [ "bow" ]
+- id: "arrow"
+  name: "Arrow"
+  type: OBJECT
+  roomDesc: "Arrow"
+  keywords: [ "arrow" ]
+- id: "medicine"
+  name: "Medicine"
+  type: POTION
+  roomDesc: "Potion"
+  keywords: [ "potion" ]
+- id: "knife"
+  name: "Knife"
+  type: WEAPON
+  roomDesc: "Knife"
+  keywords: [ "knife" ]
+- id: "flamethrower"
+  name: "Flamethrower"
+  type: WEAPON
+  roomDesc: "Flamethrower"
+  keywords: [ "flamethrower" ]
+- id: "ruby"
+  name: "Ruby"
+  type: OBJECT
+  roomDesc: "Ruby"
+  keywords: [ "ruby" ]

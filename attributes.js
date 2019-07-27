@@ -1,6 +1,12 @@
 'use strict';
 
 module.exports = [
-  { name: 'health', base: 100 },
+  { 
+    name: 'stamina',
+    base: 100 
+  },
+  {
+    name: 'score', base: 0
+  },
 ];
 

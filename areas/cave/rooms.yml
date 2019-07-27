@@ -10,7 +10,7 @@
   title: Undefined
   description: There is a way up to the north which leads out into sunlight and a
     west/east tunnel.
-  items: [ "cave:stick" ]
+  items: [ "cave:vodka" ]
   exits:
   - roomId: cave:1
     direction: up
@@ -43,6 +43,7 @@
 - id: '5'
   title: Undefined
   description: You are in a small room.
+  items: [ "cave:stick", "cave:poison" ]
   exits:
   - roomId: cave:4
     direction: south
@@ -105,6 +106,7 @@
 - id: '11'
   title: Undefined
   description: You are in the Red room
+  items: [ "cave:bow" ]
   exits:
   - roomId: cave:9
     direction: east
@@ -140,6 +142,7 @@
 - id: '15'
   title: Undefined
   description: A maze of twisting passages all alike...There are exits in all directions!
+  items: [ "cave:arrow" ]
   exits:
   - roomId: cave:14
     direction: up
@@ -194,6 +197,7 @@
 - id: '20'
   title: Undefined
   description: Armoury
+  items: [ "cave:knife", "cave:flamethrower" ]
   exits:
   - roomId: cave:16
     direction: west
@@ -239,6 +243,7 @@
 - id: '25'
   title: Undefined
   description: You are in a sparsely-decorated doctor'ssurgery
+  items: [ "cave:medicine" ]
   exits:
   - roomId: cave:24
     direction: south
@@ -279,6 +284,7 @@
   title: Undefined
   description: This is the demon's room. The only exit is via a portcullis to the
     West
+  items: [ "cave:dagger" ]
   exits:
   - roomId: cave:29
     direction: west
@@ -340,6 +346,7 @@
   title: Undefined
   description: This is Merlin's room (Merlin is locked up somewhere outside the CAVE).
     Charts and weird symbols adorn the jagged walls
+  items: [ "cave:ruby" ]
   exits:
   - roomId: cave:36
     direction: south

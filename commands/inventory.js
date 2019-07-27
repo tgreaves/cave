@@ -5,6 +5,7 @@ const ItemUtil = require('../lib/ItemUtil');
 
 module.exports = {
   usage: 'inventory',
+  aliases: [ 'invent' ],
   command : (state) => (args, player) => {
     if (!player.inventory || !player.inventory.size) {
       return Broadcast.sayAt(player, "You aren't carrying anything.");

@@ -10,8 +10,8 @@ module.exports = {
 
     const { room } = player;
 
-    B.sayAt(player, room.title);
-    B.sayAt(player, B.line(60));
+    //B.sayAt(player, room.title);
+    //B.sayAt(player, B.line(60));
     B.sayAt(player, room.description, 80);
 
     for (const otherPlayer of room.players) {
@@ -19,15 +19,15 @@ module.exports = {
         continue;
       }
 
-      B.sayAt(player, `[Player] ${otherPlayer.name}`);
+      B.sayAt(player, `${otherPlayer.name} is here.`);
     }
 
     for (const npc of room.npcs) {
-      B.sayAt(player, `[NPC] ${npc.name}`);
+      B.sayAt(player, `The ${npc.name} is here.`);
     }
 
     for (const item of room.items) {
-      B.sayAt(player, `[Item] ${item.roomDesc}`);
+      B.sayAt(player, `The ${item.roomDesc} is here.`);
     }
 
     const exits = room.getExits();

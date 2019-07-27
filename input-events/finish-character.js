@@ -24,7 +24,8 @@ module.exports = {
 
       // TIP:DefaultAttributes: This is where you can change the default attributes for players
       const defaultAttributes = [
-        'health',
+        'stamina',
+        'score'
       ];
 
       for (const attr of defaultAttributes) {
