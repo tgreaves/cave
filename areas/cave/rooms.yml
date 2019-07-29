@@ -44,6 +44,7 @@
   title: Undefined
   description: You are in a small room.
   items: [ "cave:stick", "cave:poison" ]
+  npcs: ["cave:rat"]
   exits:
   - roomId: cave:4
     direction: south
@@ -107,6 +108,7 @@
   title: Undefined
   description: You are in the Red room
   items: [ "cave:bow" ]
+  npcs: ["cave:bat"]
   exits:
   - roomId: cave:9
     direction: east
@@ -198,6 +200,7 @@
   title: Undefined
   description: Armoury
   items: [ "cave:knife", "cave:flamethrower" ]
+  npcs: ["cave:author","cave:killer","cave:worm"]
   exits:
   - roomId: cave:16
     direction: west
@@ -222,6 +225,7 @@
 - id: '23'
   title: Undefined
   description: An east/west passage
+  npcs: ["cave:troll"]
   exits:
   - roomId: cave:22
     direction: west
@@ -250,6 +254,7 @@
 - id: '26'
   title: Undefined
   description: A venomous snake-pit looms out of the fog...
+  npcs: ["cave:viper","cave:cobra","cave:python","cave:adder"]
   exits:
   - roomId: cave:24
     direction: north
@@ -303,6 +308,7 @@
   title: Undefined
   description: A sign on the wall says "Beware the one who has the Ruby for he has
     Superior Magical Power." There is a unbelievable stench in here.
+  npcs: ["cave:drunk"]
   exits:
   - roomId: cave:31
     direction: west
@@ -355,6 +361,7 @@
 - id: '38'
   title: Undefined
   description: The Dragon's Lair
+  npcs: ["cave:dragon"]
   exits:
   - roomId: cave:36
     direction: north
@@ -362,6 +369,7 @@
   title: Undefined
   description: You have climbed up onto a narrow ledge and Merlin's room is visible
     down below
+  npcs: ["cave:bug"]
   exits:
   - roomId: cave:37
     direction: down
@@ -422,6 +430,7 @@
 - id: '46'
   title: Undefined
   description: The South side of the glowing Cavern.
+  npcs: ["cave:coward"]
   exits:
   - roomId: cave:45
     direction: west
@@ -603,6 +612,7 @@
 - id: '67'
   title: Undefined
   description: An electric blue glow shimmers from the North
+  npcs: ["cave:spider"]
   exits:
   - roomId: cave:66
     direction: east
