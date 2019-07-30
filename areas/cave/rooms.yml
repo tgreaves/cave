@@ -116,6 +116,8 @@
   title: Undefined
   description: You are in the Green room. There is a switch at the entrance labelled
     LIGHTS
+  metadata:
+    light-switch: true
   exits:
   - roomId: cave:9
     direction: south

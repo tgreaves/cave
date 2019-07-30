@@ -10,6 +10,11 @@ module.exports = {
 
     const { room } = player;
 
+    if ( room.area.getMeta('lights') === 'off') {
+      B.sayAt(player, 'It is too dark to see.');
+      return;
+    }
+
     //B.sayAt(player, room.title);
     //B.sayAt(player, B.line(60));
     B.sayAt(player, room.description, 80);

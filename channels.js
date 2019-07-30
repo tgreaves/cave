@@ -52,17 +52,17 @@ module.exports = [
   }),
 
   new Channel({
-    name: 'yell',
+    name: 'shout',
     color: ['bold', 'red'],
     description: 'Send a message to everyone in your area',
     audience: new AreaAudience(),
     formatter: {
       sender: function (sender, target, message, colorify) {
-        return colorify(`You yell, '${message}'`);
+        return colorify(`You shout, '${message}'`);
       },
 
       target: function (sender, target, message, colorify) {
-        return colorify(`Someone yells from nearby, '${message}'`);
+        return colorify(`${sender.name} shouts, '${message}'`);
       }
     }
   }),
