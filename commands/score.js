@@ -10,6 +10,6 @@ module.exports = {
     // 1560IFC$="SCORE"ORC$="STATUS"PRINT"Score is ";E'"Stamina is ";INTD'"Stamina limit is ";INTH':ENDPROC
     B.sayAt(p, `Score is ${p.getAttribute('score')}`)
     B.sayAt(p, `Stamina is ${p.getAttribute('stamina')}`)
-    B.sayAt(p, `Stamina limit is ${p.getBaseAttribute('stamina')}`)
+    B.sayAt(p, `Stamina limit is ${p.getBaseAttribute('staminaLimit')}`)
   }
 };

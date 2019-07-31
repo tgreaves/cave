@@ -1,6 +1,6 @@
 'use strict';
 
-const { Broadcast, PlayerRoles, WorldAudience } = require('ranvier');
+const { Broadcast, PlayerRoles } = require('ranvier');
 
 module.exports = {
   aliases: ['power','light','switch'],
@@ -12,8 +12,6 @@ module.exports = {
     if (!args || !args.length) {
       return Broadcast.sayAt(player, 'I can only switch the lights on or off.');
     }
-
-    const wa = new WorldAudience();
 
     if (args === 'on')
     {

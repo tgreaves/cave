@@ -57,6 +57,15 @@ module.exports = {
 
             currentPlayer = await state.PlayerManager.loadPlayer(state, account, char.username);
             currentPlayer.socket = socket;
+
+            if (currentPlayer.level == 4) {
+              Broadcast.sayAt(currentPlayer, "Welcome Powerful Wizard");
+            } else {
+              Broadcast.sayAt(currentPlayer, "Welcome again to CAVE");
+            }
+
+            Broadcast.sayAt(currentPlayer, '');
+
             socket.emit("done", socket, { player: currentPlayer });
           },
         });

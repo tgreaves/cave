@@ -119,5 +119,23 @@ module.exports = {
 
       this.save();
     },
+
+    dropEverything: state => function () {
+      if (!this.inventory || !this.inventory.size) {
+        return;
+      }
+
+      for (const [, item ] of this.inventory) {
+        this.removeItem(item);
+        this.room.addItem(item);
+        this.emit('drop', item);
+        item.emit('drop', this);
+
+       for (const npc of this.room.npcs) {
+          npc.emit('playerDropItem', this, item);
+       }
+      }
+    }
+
   }
 };
