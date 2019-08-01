@@ -21,6 +21,7 @@ module.exports = [
 
   new Channel({
     name: 'say',
+    aliases: ['speak','ask'],
     color: ['yellow'],
     description: 'Send a message to all players in your room',
     audience: new RoomAudience(),

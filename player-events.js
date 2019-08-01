@@ -81,6 +81,7 @@ module.exports = {
       const maxIdleTime = (Math.abs(Config.get('maxIdleTime')) * 60000) || Infinity;
 
       if (timeSinceLastCommand > maxIdleTime && !this.isInCombat()) {
+	this.emit('dropEverything');
         this.save(() => {
           B.sayAt(this, `You were kicked for being idle for more than ${maxIdleTime / 60000} minutes!`);
           B.sayAtExcept(this.room, `${this.name} disappears.`, this);

@@ -10,24 +10,32 @@
   description: 'Undefined'
   attributes:
     stamina: 80
+  behaviors:
+    wander: true
 - id: rat
   keywords: ['rat']
   name: 'Rat'
   description: 'Undefined'
   attributes:
     stamina: 40
+  behaviors:
+    wander: true
 - id: bat
   keywords: ['bat']
   name: 'Bat'
   description: 'Undefined'
   attributes:
     stamina: 60
+  behaviors:
+    wander: true
 - id: bug
   keywords: ['bug']
   name: 'Bug'
   description: 'Undefined'
   attributes:
     stamina: 30
+  behaviors:
+    wander: true
 - id: author
   keywords: ['author']
   name: 'Author'
@@ -40,12 +48,16 @@
   description: 'Undefined'
   attributes:
     stamina: 40
+  behaviors:
+    wander: true
 - id: coward
   keywords: ['coward']
   name: 'Coward'
   description: 'Undefined'
   attributes:
     stamina: 50
+  behaviors:
+    wander: true
 - id: killer
   keywords: ['killer']
   name: 'Killer'
@@ -88,9 +100,13 @@
   description: 'Undefined'
   attributes:
     stamina: 5
+  behaviors:
+    wander: true
 - id: drunk
   keywords: ['drunk']
   name: 'Drunk'
   description: 'Undefined'
   attributes:
     stamina: 40
+  behaviors:
+    wander: true

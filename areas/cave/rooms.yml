@@ -195,6 +195,8 @@
 - id: '19'
   title: Undefined
   description: This is the Mortuary
+  metadata:
+    no-combat: true
   exits:
   - roomId: cave:16
     direction: east
@@ -295,6 +297,9 @@
   exits:
   - roomId: cave:29
     direction: west
+  doors:
+    "cave:29":
+      closed: true
 - id: '31'
   title: Undefined
   description: A well-lit bar is off to the East. From here there are exits North
