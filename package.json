@@ -2,8 +2,8 @@
   "name": "cave",
   "version": "1.0.0",
   "description": "A port of the BBC Micro Econet MUD game 'Cave' to [Ranvier](https://ranviermud.com).",
-  "author": "",
-  "license": "ISC",
+  "author": "Tristan Greaves",
+  "license": "MIT",
   "dependencies": {
     "rando-js": "^0.2.0"
   }
