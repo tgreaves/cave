@@ -4,8 +4,11 @@ const { Broadcast, PlayerRoles } = require('ranvier');
 
 module.exports = {
   usage: 'room <room number>',
-  requiredRole: PlayerRoles.ADMIN,
   command: (state) => (args, player) => {
+    if (player.level < 4) {
+      return Broadcast.sayAt(player, "You can't do that.");
+    }
+
     if (!args || !args.length) {
       return Broadcast.sayAt(player, 'Which room?');
     }

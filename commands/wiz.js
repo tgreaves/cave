@@ -4,9 +4,11 @@ const { Broadcast, PlayerRoles } = require('ranvier');
 
 module.exports = {
   usage: 'wiz',
-  requiredRole: PlayerRoles.ADMIN,
   command: (state) => (args, player) => {
-    
+    if (player.level < 4) {
+      return Broadcast.sayAt(player, "You can't do that.");
+    }
+
     const targetRoom = state.RoomManager.getRoom('cave:16')
     
     player.followers.forEach(follower => {

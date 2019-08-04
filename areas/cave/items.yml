@@ -8,21 +8,34 @@
   type: WEAPON
   roomDesc: "Stick"
   keywords: [ "stick" ]
+  metadata:
+    minDamage: 1
+    maxDamage: 3
+    multiplier: 3
 - id: "poison"
   name: "Poison"
   type: POTION
   roomDesc: "Poison"
   keywords: [ "poison " ]
+  metadata:
+    poisonRate: 20
+    poisonDamage: 1
 - id: "dagger"
   name: "Dagger"
   type: WEAPON
   roomDesc: "Dagger"
   keywords: [ "dagger " ]
+  metadata:
+    minDamage: 6
+    maxDamage: 10
 - id: "bow"
   name: "Bow"
   type: WEAPON
   roomDesc: "Bow"
   keywords: [ "bow" ]
+  metadata:
+    minDamage: 31
+    maxDamage: 40
 - id: "arrow"
   name: "Arrow"
   type: OBJECT
@@ -32,17 +45,23 @@
   name: "Medicine"
   type: POTION
   roomDesc: "Potion"
-  keywords: [ "potion" ]
+  keywords: [ "medicine" ]
 - id: "knife"
   name: "Knife"
   type: WEAPON
   roomDesc: "Knife"
   keywords: [ "knife" ]
+  metadata:
+    minDamage: 6
+    maxDamage: 10
 - id: "flamethrower"
   name: "Flamethrower"
   type: WEAPON
   roomDesc: "Flamethrower"
   keywords: [ "flamethrower" ]
+  metadata:
+    minDamage: 51
+    maxDamage: 60
 - id: "ruby"
   name: "Ruby"
   type: OBJECT

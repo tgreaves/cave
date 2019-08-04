@@ -24,11 +24,20 @@ module.exports = {
         continue;
       }
 
-      B.sayAt(player, `${otherPlayer.name} is here.`);
+      let staminaText = '';
+      if (player.level == 4) {
+        staminaText = ' stamina ' + player.getAttribute('stamina');
+      }
+      B.sayAt(player, `${otherPlayer.name} is here${staminaText}.`);
     }
 
     for (const npc of room.npcs) {
-      B.sayAt(player, `The ${npc.name} is here.`);
+      let staminaText = '';
+      if (player.level == 4) {
+        staminaText = ' stamina ' + npc.getAttribute('stamina');
+      }
+
+      B.sayAt(player, `The ${npc.name} is here${staminaText}.`);
     }
 
     for (const item of room.items) {
