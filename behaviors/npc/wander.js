@@ -14,7 +14,7 @@ const { Broadcast, Logger } = require('ranvier');
 module.exports = {
   listeners: {
     updateTick: state => function (config) {
-      if (this.isInCombat() || !this.room || this.room.getMeta('no-wander') == true) {
+      if (this.isInCombat() || (!this.room) || (this.room.getMeta('no-wander') == true)) {
         return;
       }
 
@@ -51,6 +51,11 @@ module.exports = {
         // maybe a possible feature where it could be configured that they can open doors
         // or even if they have the key they can unlock the doors
         Logger.verbose(`NPC [${this.name}] wander blocked by door.`);
+        return;
+      }
+
+      if (randomRoom.getMeta('no-wander') == true) {
+        Logger.verbose(`NPC [${this.name}] wander blocked by no-wander target room.`);
         return;
       }
 

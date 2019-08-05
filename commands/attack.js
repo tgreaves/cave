@@ -49,8 +49,6 @@ module.exports = {
       "stab": ["knife", 'STABbed']
     };
 
-    B.sayAt(player, "Trying " + invokedCommand);
-
     if ( !attackTypes[invokedCommand]) {
       return B.sayAt(player, 'NYI');
     }
@@ -65,7 +63,7 @@ module.exports = {
     }
 
     player.initiateCombat(target);
-    B.sayAt(player, `You attack ${target.name}.`);
+    //B.sayAt(player, `You attack ${target.name}.`);
 
     // Damage calculation.
     let amount = Random.inRange(item.getMeta('minDamage'), item.getMeta('maxDamage'));
@@ -73,7 +71,7 @@ module.exports = {
       amount = amount * item.getMeta('multiplier');
     }
 
-    B.sayAt(player, 'Damage calc was ' + amount);
+    //B.sayAt(player, 'Damage calc was ' + amount);
 
     const damage = new Damage('stamina', amount, player, item);
     damage.commit(target);

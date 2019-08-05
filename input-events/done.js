@@ -18,7 +18,7 @@ module.exports = {
     player.inventory.setMax(2);   // Default
     player.prompt = "*";
 
-    let health_base = 50 + player.getAttribute('score')/5;
+    let health_base = Math.round(50 + player.getAttribute('score')/5);
 
     if (health_base > 250 && player.level != 4) {
       Broadcast.sayAt(player, "You have been given the rank of WIZARD");
@@ -46,7 +46,7 @@ module.exports = {
     }
 
     // Original BBC formula: D=H/2+RND(H/2)
-    player.setAttributeBase('stamina', health_base/2 + ( Math.floor(Math.random() * (health_base/2 - 1) + 1)));
+    player.setAttributeBase('stamina', Math.round(health_base/2 + ( Math.floor(Math.random() * (health_base/2 - 1) + 1))));
     player.setAttributeBase('staminaLimit', health_base);
 
     Broadcast.sayAt(player, 'Your stamina is ' + player.getAttribute('stamina'));

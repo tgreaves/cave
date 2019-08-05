@@ -9,9 +9,6 @@ module.exports = () => {
       /**
        * @param {*} config Behavior config
        */
-      updateTick: state => function (config) {
-      //  Combat.updateRound(state, this);
-      },
 
       /**
        * NPC was killed

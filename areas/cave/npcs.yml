@@ -49,7 +49,6 @@
   attributes:
     stamina: 500
   behaviors:
-    wander: true
     combat: true
 - id: spider
   keywords: ['spider']

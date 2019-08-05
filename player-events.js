@@ -1,6 +1,7 @@
 'use strict';
 
 const sprintf = require('sprintf-js').sprintf;
+const { Random }= require('rando-js');
 const LevelUtil = require('../cave/lib/LevelUtil');
 const { Broadcast: B, Config, Logger } = require('ranvier');
 
@@ -93,32 +94,15 @@ module.exports = {
 
     /**
      * Handle player gaining experience
+     * 
+     * As per the original game, any levelling up etc only occurs when logging in.
+     * Also, no auto-saving just because you got points!
      * @param {number} amount Exp gained
      */
     experience: state => function (amount) {
-      B.sayAt(this, `<blue>You gained <bold>${amount}</bold> experience!</blue>`);
+      B.sayAt(this, `<blue>You are credited with <bold>${amount}</bold> points</blue>`);
 
-      const totalTnl = LevelUtil.expToLevel(this.level + 1);
-
-      // level up, currently wraps experience if they gain more than needed for multiple levels
-      if (this.experience + amount > totalTnl) {
-        B.sayAt(this, '                                   <bold><blue>!Level Up!</blue></bold>');
-        B.sayAt(this, B.progress(80, 100, "blue"));
-
-        let nextTnl = totalTnl;
-        while (this.experience + amount > nextTnl) {
-          amount = (this.experience + amount) - nextTnl;
-          this.level++;
-          this.experience = 0;
-          nextTnl = LevelUtil.expToLevel(this.level + 1);
-          B.sayAt(this, `<blue>You are now level <bold>${this.level}</bold>!</blue>`);
-          this.emit('level');
-        }
-      }
-
-      this.experience += amount;
-
-      this.save();
+      this.setAttributeBase('score', this.getAttribute('score') + amount);
     },
 
     dropEverything: state => function () {
@@ -139,8 +123,37 @@ module.exports = {
     },
 
     hit: state => function (damage, target, finalAmount) {
-      B.sayAt(this, 'player-events.js: You hit something.');
+      //B.sayAt(this, 'player-events.js: You hit something.');
     },
+
+    /**
+     * Player killed a target
+     * @param {Character} target
+     */
+    deathblow: state => function (target, skipParty) {
+      if (target && !this.isNpc) {
+        B.sayAt(this, `<b><red>You killed ${target.name}!</red></b>`);
+      }
+
+      // Calculate XP reward.
+      // Killed a player:   10 + RND( Score / 20 )
+      // Killed a CCM:      1 + RND ( (Starting health / 30) ) +  (Starting health / 30 )
+
+      let xp = 0;
+
+      if (target.isNpc) {
+        let stamina = target.getBaseAttribute('stamina') / 30;
+        xp = 1 + Random.inRange( 1, stamina ) + stamina;
+      } else {
+        xp = 10 + Random.inRange( 1, target.getBaseAttribute('score') / 20);
+      }
+
+      xp = Math.round(xp);
+
+      console.log('XP calculation was: ' + xp)
+
+      this.emit('experience', xp);
+    }
 
   }
 };
