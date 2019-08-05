@@ -14,7 +14,7 @@ const { Broadcast, Logger } = require('ranvier');
 module.exports = {
   listeners: {
     updateTick: state => function (config) {
-      if (this.isInCombat() || !this.room) {
+      if (this.isInCombat() || !this.room || this.room.getMeta('no-wander') == true) {
         return;
       }
 

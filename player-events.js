@@ -136,7 +136,11 @@ module.exports = {
           npc.emit('playerDropItem', this, item);
        }
       }
-    }
+    },
+
+    hit: state => function (damage, target, finalAmount) {
+      B.sayAt(this, 'player-events.js: You hit something.');
+    },
 
   }
 };

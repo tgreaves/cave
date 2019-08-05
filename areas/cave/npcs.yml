@@ -4,6 +4,8 @@
   description: 'Undefined'
   attributes:
     stamina: 600
+  behaviors:
+    combat: true
 - id: troll
   keywords: ['troll']
   name: 'Troll'
@@ -12,6 +14,7 @@
     stamina: 80
   behaviors:
     wander: true
+    combat: true
 - id: rat
   keywords: ['rat']
   name: 'Rat'
@@ -20,6 +23,7 @@
     stamina: 40
   behaviors:
     wander: true
+    combat: true
 - id: bat
   keywords: ['bat']
   name: 'Bat'
@@ -28,6 +32,7 @@
     stamina: 60
   behaviors:
     wander: true
+    combat: true
 - id: bug
   keywords: ['bug']
   name: 'Bug'
@@ -36,12 +41,16 @@
     stamina: 30
   behaviors:
     wander: true
+    combat: true
 - id: author
   keywords: ['author']
   name: 'Author'
   description: 'Undefined'
   attributes:
     stamina: 500
+  behaviors:
+    wander: true
+    combat: true
 - id: spider
   keywords: ['spider']
   name: 'Spider'
@@ -50,6 +59,7 @@
     stamina: 40
   behaviors:
     wander: true
+    combat: true
 - id: coward
   keywords: ['coward']
   name: 'Coward'
@@ -58,42 +68,55 @@
     stamina: 50
   behaviors:
     wander: true
+    combat: true
 - id: killer
   keywords: ['killer']
   name: 'Killer'
   description: 'Undefined'
   attributes:
     stamina: 100
+  behaviors:
+    combat: true
 - id: viper
   keywords: ['viper']
   name: 'Viper'
   description: 'Undefined'
   attributes:
     stamina: 35
+  behaviors:
+    combat: true
 - id: cobra
   keywords: ['cobra']
   name: 'Cobra'
   description: 'Undefined'
   attributes:
     stamina: 35
+  behaviors:
+    combat: true
 - id: python
   keywords: ['python']
   name: 'Python'
   description: 'Undefined'
   attributes:
     stamina: 35
+  behaviors:
+    combat: true
 - id: adder
   keywords: ['adder']
   name: 'Adder'
   description: 'Undefined'
   attributes:
     stamina: 35
+  behaviors:
+    combat: true
 - id: adder
   keywords: ['adder']
   name: 'Adder'
   description: 'Undefined'
   attributes:
     stamina: 35
+  behaviors:
+    combat: true
 - id: worm
   keywords: ['worm']
   name: 'Worm'
@@ -102,6 +125,7 @@
     stamina: 5
   behaviors:
     wander: true
+    combat: true
 - id: drunk
   keywords: ['drunk']
   name: 'Drunk'
@@ -110,3 +134,4 @@
     stamina: 40
   behaviors:
     wander: true
+    combat: true

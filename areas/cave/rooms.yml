@@ -197,6 +197,7 @@
   description: This is the Mortuary
   metadata:
     no-combat: true
+    no-wander: true
   exits:
   - roomId: cave:16
     direction: east
