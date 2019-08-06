@@ -15,11 +15,6 @@ module.exports = {
   usage: 'attack <player/npc>',
 
   command: (state) => (args, player, invokedCommand) => {
-    // TODO: Implement command permissions.
-    //if (player.level < 4) {
-    //  return Broadcast.sayAt(player, 'You can\'t do that.');
-    //}
-
     if (!args || !args.length) {
       return B.sayAt(player, 'Attack what?');
     }
@@ -102,6 +97,7 @@ module.exports = {
       }
 
       amount = 3 + Random.inRange(1,3);
+      // TODO: Poison handling.
 
     } else {
       amount = Random.inRange(item.getMeta('minDamage'), item.getMeta('maxDamage'));

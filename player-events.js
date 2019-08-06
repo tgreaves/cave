@@ -124,7 +124,6 @@ module.exports = {
     },
 
     hit: state => function (damage, target, finalAmount) {
-      //B.sayAt(this, 'player-events.js: You hit something.');
       B.sayAtExcept(this.room, 
         target.name + " is " + damage.metadata.attackDescription + ". Stamina=" + target.getAttribute('stamina'), 
         target);
@@ -132,8 +131,6 @@ module.exports = {
 
     damaged: state => function (damage, finalAmount) 
       { 
-        //B.sayAt(this.room, this.name + " is " + damage.metadata.attackDescription + ". Stamina=" + this.getAttribute('stamina'));
-
         B.sayAt(this, "You are " + damage.metadata.attackDescription + " by " + damage.attacker.name);
 
         if (this.getAttribute('stamina') <= 0) {
@@ -172,12 +169,12 @@ module.exports = {
        }
 
        this.moveTo(home, _ => {
-         state.CommandManager.get('look').execute(null, this);
-
-         B.sayAt(this, '<b><red>Whoops, that sucked!</red></b>');
+         B.sayAt(this, '<b><red>Life is slipping away...You are going</red></b>');
          if (killer && killer !== this) {
            B.sayAt(this, `You were killed by ${killer.name}.`);
          }
+
+         state.CommandManager.get('look').execute(null, this);
 
          B.prompt(this);
        });
@@ -207,7 +204,7 @@ module.exports = {
       }
 
       xp = Math.round(xp);
-      
+
       this.emit('experience', xp);
     }
 
