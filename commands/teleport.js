@@ -4,7 +4,6 @@ const { Broadcast, PlayerRoles } = require('ranvier');
 
 module.exports = {
   usage: 'teleport <player/object>',
-  requiredRole: PlayerRoles.ADMIN,
   command: (state) => (args, player) => {
     if (!args || !args.length) {
       return Broadcast.sayAt(player, 'Teleport to what?');
@@ -18,13 +17,6 @@ module.exports = {
 
     const targetRoom = targetPlayer.room;
   
-    player.followers.forEach(follower => {
-      follower.unfollow();
-      if (!follower.isNpc) {
-        Broadcast.sayAt(follower, `You stop following ${player.name}.`);
-      }
-    });
-
     if (player.isInCombat()) {
       player.removeFromCombat();
     }

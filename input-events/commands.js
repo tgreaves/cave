@@ -104,6 +104,10 @@ module.exports = {
         }
       }
 
+      if (player.getAttribute('stamina') < 5) {
+        B.sayAt(player, "<red>You are almost dead</red>");
+      }
+
       B.prompt(player);
       loop();
     });

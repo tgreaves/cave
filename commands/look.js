@@ -26,7 +26,7 @@ module.exports = {
 
       let staminaText = '';
       if (player.level == 4) {
-        staminaText = ' stamina ' + player.getAttribute('stamina');
+        staminaText = ' stamina ' + otherPlayer.getAttribute('stamina');
       }
       B.sayAt(player, `${otherPlayer.name} is here${staminaText}.`);
     }

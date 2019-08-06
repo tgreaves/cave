@@ -44,39 +44,84 @@ module.exports = {
       return B.sayAt(player, "They aren't here.");
     }
 
+    if (  invokedCommand == 'strike' ||
+          invokedCommand == 'thump'  ||
+          invokedCommand == 'punch'  || 
+          invokedCommand == 'kick') {
+            invokedCommand = 'hit';
+          }
+
     // Table of attack types.
     let attackTypes = {  
-      "stab": ["knife", 'STABbed']
+      "hit":    ['stick',         'HIT',      1],
+      "stab":   ['knife',         'STABbed',  1],
+      "burn":   ['flamethrower',  'BURNed',   1],
+      "shoot":  ['bow',           'SHOT',     1],
+      "bite":   ['INNATE',        'BITEn',    1],
+      "zap":    ['INNATE',        'ZAPped!',  4]
     };
 
     if ( !attackTypes[invokedCommand]) {
       return B.sayAt(player, 'NYI');
     }
     
-    let [weaponRequired, attackDescription] = attackTypes[invokedCommand];
+    let [weaponRequired, attackDescription, minimumLevel] = attackTypes[invokedCommand];
+
+    if (player.level < minimumLevel) {
+      return B.sayAt(player, 'You can\'t do that.');
+    }
 
     // Check if the player is carrying the required item.
     const item = ArgParser.parseDot(weaponRequired, player.inventory);
+    const arrowItem = ArgParser.parseDot('arrow', player.inventory);
 
-    if (!item) {
+    if (weaponRequired != 'INNATE' && !item && invokedCommand != 'hit') {
       return B.sayAt(player, "But you do not have the " + weaponRequired);
     }
 
+    if (invokedCommand == 'shoot' && !arrowItem) {
+      return B.sayAt(player, "You have no Arrow.");
+    }
+    
     player.initiateCombat(target);
-    //B.sayAt(player, `You attack ${target.name}.`);
-
+  
     // Damage calculation.
-    let amount = Random.inRange(item.getMeta('minDamage'), item.getMeta('maxDamage'));
-    if (item.getMeta('multiplier')) {
-      amount = amount * item.getMeta('multiplier');
+    let amount = 0;
+
+    // HIT is a special case.  You can HIT with or without having the Stick.
+    if (invokedCommand == 'hit' && !item)
+    {
+      // Hitting without a stick.
+      amount = Random.inRange(1,3);
+    } else if (invokedCommand == 'zap') {
+      amount = Random.inRange(1, 40) + 100;
+    } else if (invokedCommand == 'bite') {
+      if (Random.inRange(1,3) != 1) {
+        B.sayAt(target, player.name + " tries to BITE you!");
+        return B.sayAt(player, target.name + " dodges away!");
+      }
+
+      amount = 3 + Random.inRange(1,3);
+
+    } else {
+      amount = Random.inRange(item.getMeta('minDamage'), item.getMeta('maxDamage'));
+
+      if (item && item.getMeta('multiplier')) {
+        amount = amount * item.getMeta('multiplier');
+      }
     }
 
-    //B.sayAt(player, 'Damage calc was ' + amount);
+    if (item && item.name == 'Stick') {
+      attackDescription = attackDescription + ' using the stick';
+    }
 
-    const damage = new Damage('stamina', amount, player, item);
+    if (invokedCommand == 'shoot') {
+      player.removeItem(arrowItem);
+      player.room.addItem(arrowItem);
+    }
+
+    const damage = new Damage('stamina', amount, player, item , { "attackDescription": attackDescription  });
     damage.commit(target);
-
-    B.sayAt(player, target.name + " is " + attackDescription + ". Stamina=" + target.getAttribute('stamina'));
 
   }
 };

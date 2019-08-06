@@ -4,6 +4,7 @@ const sprintf = require('sprintf-js').sprintf;
 const { Random }= require('rando-js');
 const LevelUtil = require('../cave/lib/LevelUtil');
 const { Broadcast: B, Config, Logger } = require('ranvier');
+const Combat = require('./lib/Combat');
 
 module.exports = {
   listeners: {
@@ -124,7 +125,64 @@ module.exports = {
 
     hit: state => function (damage, target, finalAmount) {
       //B.sayAt(this, 'player-events.js: You hit something.');
+      B.sayAtExcept(this.room, 
+        target.name + " is " + damage.metadata.attackDescription + ". Stamina=" + target.getAttribute('stamina'), 
+        target);
     },
+
+    damaged: state => function (damage, finalAmount) 
+      { 
+        //B.sayAt(this.room, this.name + " is " + damage.metadata.attackDescription + ". Stamina=" + this.getAttribute('stamina'));
+
+        B.sayAt(this, "You are " + damage.metadata.attackDescription + " by " + damage.attacker.name);
+
+        if (this.getAttribute('stamina') <= 0) {
+          Combat.handleDeath(state, this, damage.attacker);
+        }
+      },
+
+    /**
+     * Player was killed
+     * @param {Character} killer
+     */
+    killed: state => {
+      const startingRoomRef = Config.get('startingRoom');
+      if (!startingRoomRef) {
+        Logger.error('No startingRoom defined in ranvier.json');
+      }
+
+      return function (killer) {
+       this.removePrompt('combat');
+
+       const othersDeathMessage = killer ?
+         `<b><red>${this.name} collapses to the ground, dead at the hands of ${killer.name}.</b></red>` :
+         `<b><red>${this.name} collapses to the ground, dead</b></red>`;
+
+       B.sayAtExcept(this.room, othersDeathMessage, (killer ? [killer, this] : this));
+
+       if (this.party) {
+         B.sayAt(this.party, `<b><green>${this.name} was killed!</green></b>`);
+       }
+
+       this.setAttributeToMax('stamina');
+
+       let home = state.RoomManager.getRoom(this.getMeta('waypoint.home'));
+       if (!home) {
+         home = state.RoomManager.getRoom(startingRoomRef);
+       }
+
+       this.moveTo(home, _ => {
+         state.CommandManager.get('look').execute(null, this);
+
+         B.sayAt(this, '<b><red>Whoops, that sucked!</red></b>');
+         if (killer && killer !== this) {
+           B.sayAt(this, `You were killed by ${killer.name}.`);
+         }
+
+         B.prompt(this);
+       });
+     };
+   },
 
     /**
      * Player killed a target
@@ -149,9 +207,7 @@ module.exports = {
       }
 
       xp = Math.round(xp);
-
-      console.log('XP calculation was: ' + xp)
-
+      
       this.emit('experience', xp);
     }
 
