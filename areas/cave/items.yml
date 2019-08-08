@@ -18,7 +18,7 @@
   roomDesc: "Poison"
   keywords: [ "poison " ]
   metadata:
-    poisonRate: 20
+    poisonRate: 10
     poisonDamage: 1
 - id: "dagger"
   name: "Dagger"
@@ -44,7 +44,7 @@
 - id: "medicine"
   name: "Medicine"
   type: POTION
-  roomDesc: "Potion"
+  roomDesc: "Medicine"
   keywords: [ "medicine" ]
 - id: "knife"
   name: "Knife"

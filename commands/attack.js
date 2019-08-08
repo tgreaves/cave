@@ -97,7 +97,19 @@ module.exports = {
       }
 
       amount = 3 + Random.inRange(1,3);
-      // TODO: Poison handling.
+      
+      if (player.hasEffectType('poison') && !target.isNpc) {
+        const effect = player.effects.getByType('poison');
+
+        const newEffect = state.EffectFactory.create(
+          'poison', {
+            tickInterval: effect.config.tickInterval,
+            poisonDamage: effect.config.poisonDamage
+          });
+        effect.attacker = player;
+  
+        target.addEffect(newEffect);
+      }
 
     } else {
       amount = Random.inRange(item.getMeta('minDamage'), item.getMeta('maxDamage'));

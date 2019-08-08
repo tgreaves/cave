@@ -124,14 +124,18 @@ module.exports = {
     },
 
     hit: state => function (damage, target, finalAmount) {
-      B.sayAtExcept(this.room, 
-        target.name + " is " + damage.metadata.attackDescription + ". Stamina=" + target.getAttribute('stamina'), 
-        target);
+      if ( damage.metadata.attackDescription != 'poisoned') {
+        B.sayAtExcept(this.room, 
+          target.name + " is " + damage.metadata.attackDescription + ". Stamina=" + target.getAttribute('stamina'), 
+          target);
+      }
     },
 
     damaged: state => function (damage, finalAmount) 
       { 
-        B.sayAt(this, "You are " + damage.metadata.attackDescription + " by " + damage.attacker.name);
+        if ( damage.metadata.attackDescription != 'poisoned') {
+          B.sayAt(this, "You are " + damage.metadata.attackDescription + " by " + damage.attacker.name);
+        }
 
         if (this.getAttribute('stamina') <= 0) {
           Combat.handleDeath(state, this, damage.attacker);
