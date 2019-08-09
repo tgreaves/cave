@@ -57,7 +57,7 @@ module.exports = {
     };
 
     if ( !attackTypes[invokedCommand]) {
-      return B.sayAt(player, 'NYI');
+      return B.sayAt(player, 'NYI: ' + invokedCommand);
     }
     
     let [weaponRequired, attackDescription, minimumLevel] = attackTypes[invokedCommand];

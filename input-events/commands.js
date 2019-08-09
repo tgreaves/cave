@@ -20,6 +20,12 @@ module.exports = {
         return loop();
       }
 
+      if ( player.hasEffectType('force-input')) {
+        const effect = player.effects.getByType('force-input');
+        player.removeEffect(effect);
+        return loop();
+      }
+
       player._lastCommandTime = Date.now();
 
       try {
