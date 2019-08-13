@@ -285,6 +285,8 @@
   title: Undefined
   description: A portcullis lies to the East. There is a strange smell to the West.
     A Rope hangs down from a hole in the roof.
+  metadata:
+    rope: true
   exits:
   - roomId: cave:30
     direction: east

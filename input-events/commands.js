@@ -29,6 +29,22 @@ module.exports = {
       player._lastCommandTime = Date.now();
 
       try {
+        // allow for modal commands, _commandState is set below when command.execute() returns a value
+        if (player._commandState) {
+          const { state: commandState, command } = player._commandState;
+          // note this calls command.func(), not command.execute()
+          const newState = command.func(data, player, command.name, commandState);
+          if (newState) {
+            player._commandState.state = newState;
+          } else {
+            player._commandState = null;
+            B.prompt(player);
+          }
+
+          loop();
+          return;
+        }
+
         const result = CommandParser.parse(state, data, player);
         if (!result) {
           throw null;
@@ -45,7 +61,19 @@ module.exports = {
               throw new RestrictedCommandError();
             }
             // commands have no lag and are not queued, just immediately execute them
-            result.command.execute(result.args, player, result.originalCommand);
+            const state = result.command.execute(result.args, player, result.originalCommand);
+            if (state) {
+              player._commandState = {
+                command: result.command,
+                state,
+              };
+
+              // bypasses prompt
+              loop();
+              return;
+            }
+
+            player._commandState = null;
             break;
           }
 
