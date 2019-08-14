@@ -9,6 +9,8 @@
     spawn-memory: true
   metadata:
     death-broadcast: 'The Dragon is slain!!'
+    attack-description: 'BURNed'
+    attack-damage: 160
 - id: troll
   keywords: ['troll']
   name: 'Troll'
@@ -19,6 +21,9 @@
     wander: true
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'HIT'
+    attack-damage: 4
 - id: rat
   keywords: ['rat']
   name: 'Rat'
@@ -29,6 +34,9 @@
     wander: true
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'BITEn'
+    attack-damage: 6
 - id: bat
   keywords: ['bat']
   name: 'Bat'
@@ -39,6 +47,9 @@
     wander: true
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'BITEn'
+    attack-damage: 6
 - id: bug
   keywords: ['bug']
   name: 'Bug'
@@ -49,6 +60,9 @@
     wander: true
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'HIT'
+    attack-damage: 2
 - id: author
   keywords: ['author']
   name: 'Author'
@@ -58,6 +72,9 @@
   behaviors:
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'ZAPped'
+    attack-damage: 120
 - id: spider
   keywords: ['spider']
   name: 'Spider'
@@ -68,6 +85,9 @@
     wander: true
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'BITEn'
+    attack-damage: 2
 - id: coward
   keywords: ['coward']
   name: 'Coward'
@@ -78,6 +98,9 @@
     wander: true
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'HIT'
+    attack-damage: 3
 - id: killer
   keywords: ['killer']
   name: 'Killer'
@@ -87,6 +110,9 @@
   behaviors:
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'STABbed'
+    attack-damage: 8
 - id: viper
   keywords: ['viper']
   name: 'Viper'
@@ -96,6 +122,9 @@
   behaviors:
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'BITEn'
+    attack-damage: 6
 - id: cobra
   keywords: ['cobra']
   name: 'Cobra'
@@ -105,6 +134,9 @@
   behaviors:
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'BITEn'
+    attack-damage: 6
 - id: python
   keywords: ['python']
   name: 'Python'
@@ -114,15 +146,9 @@
   behaviors:
     combat: true
     spawn-memory: true
-- id: adder
-  keywords: ['adder']
-  name: 'Adder'
-  description: 'Undefined'
-  attributes:
-    stamina: 35
-  behaviors:
-    combat: true
-    spawn-memory: true
+  metadata:
+    attack-description: 'BITEn'
+    attack-damage: 6
 - id: adder
   keywords: ['adder']
   name: 'Adder'
@@ -142,6 +168,9 @@
     wander: true
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'HIT'
+    attack-damage: 2
 - id: drunk
   keywords: ['drunk']
   name: 'Drunk'
@@ -152,3 +181,6 @@
     wander: true
     combat: true
     spawn-memory: true
+  metadata:
+    attack-description: 'HIT'
+    attack-damage: 2
