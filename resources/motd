@@ -1,5 +1,5 @@
 <white>Ranvier MUD engine - Version 3.0.0 - https://ranviermud.com
-Cave - Version 1.0.0 - https://cave.extricate.org/
+Cave - Version 1.0.0 - https://github.com/tgreaves/ranviermud-cave
 
 You are entering the noisome darknesses of...
   
@@ -10,7 +10,7 @@ You are entering the noisome darknesses of...
 <bold><green>`"Ybbd8"' `"8bbdP"Y8     "8"      `"Ybbd8"'  </green></bold> 
 
 Original BBC Econet edition: (C) Copyright XOB Software 1985
-Ranvier implementation: (C) Copyright Tristan Greaves 2019
+Ranvier implementation: (C) Copyright Tristan Greaves 2019 - 2021
 
 Though cave be deep and journey weary
 GET a weapon to make you cheery.
